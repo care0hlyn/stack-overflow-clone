@@ -1,0 +1,6 @@
+<%= render 'form' %>
+<ul id="questions">
+  <% @questions.each do |question| %>
+  <li><%= question.text %></li>
+  <% end %>
+</ul>

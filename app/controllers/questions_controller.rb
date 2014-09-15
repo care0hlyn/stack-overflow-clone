@@ -4,6 +4,7 @@ class QuestionsController < ApplicationController
 
 
   def index
+    @question = Question.new
     @questions = Question.all
   end
 
@@ -39,7 +40,7 @@ class QuestionsController < ApplicationController
   end
 
 private
-  def questions_params
-    params.require(:question).permit(:text).merge(user_id: current_user.id)
+  def question_params
+    params.require(:question).permit(:text).merge(:user_id => current_user.id)
   end
 end
