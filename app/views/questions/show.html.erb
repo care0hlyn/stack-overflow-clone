@@ -1,3 +1,20 @@
 <h1><%= @question.text %></h1>
 
 
+<ul id="new_answer">
+  <% @question.answers.each do |answer| %>
+  <li><%= button_to "Upvote", answer_votes_path(answer), :params => { :answer_id => answer.id }, :method => "post" %><%= answer.text %></li>
+  <% end %>
+</ul>
+
+<div id="answer_form">
+  <%= form_for [@question, @answer], remote: true do |f| %>
+    <%= f.text_area :text, cols: 100, rows: 5 %>
+    <%= f.submit %>
+  <% end %>
+</div>
+
+
+
+<!--
+<textarea class="form-control" rows="3"></textarea> -->
