@@ -10,7 +10,7 @@ Rails.application.routes.draw do
   resources :users
 
   resources :questions do
-    resources :answers
+    resources :answers, :except => [:index]
   end
   resources :votes
 
