@@ -6,13 +6,12 @@
   <li><%= answer.text %><br>
   <div class="row">
     <div class="col-sm-2 col">
-  <%= answer.score %> | <%= button_to "Upvote", answer_votes_path(answer), :params => { :answer_id => answer.id }, :method => "post", :class => "btn btn-default btn-xs" %>
+  <%= answer.score %> - <%= link_to "Upvote", answer_votes_path(answer), :params => { :answer_id => answer.id }, :method => "post", :class => "btn btn-default btn-xs test" %>
   </div>
   </div>
   </li>
   <% end %>
 </ul>
-
 
 
 <ul id="answer_form">
