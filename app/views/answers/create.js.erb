@@ -1,2 +1,2 @@
-$('#new_answer').append("<li><%= @answer.text %></li>");
+$('#new_answer').append("<li><%= answer.text %><%= answer.score %><%= j button_to 'Upvote', answer_votes_path(@answer), :params => { :answer_id => @answer.id }, :method => 'post' %><%= @answer.text %></li>");
 $('#answer_form').show();

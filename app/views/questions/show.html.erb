@@ -3,18 +3,19 @@
 
 <ul id="new_answer">
   <% @question.answers.each do |answer| %>
-  <li><%= button_to "Upvote", answer_votes_path(answer), :params => { :answer_id => answer.id }, :method => "post" %><%= answer.text %></li>
+  <li><%= answer.text %><br>
+  <div class="row">
+    <div class="col-sm-2 col">
+  <%= answer.score %> | <%= button_to "Upvote", answer_votes_path(answer), :params => { :answer_id => answer.id }, :method => "post", :class => "btn btn-default btn-xs" %>
+  </div>
+  </div>
+  </li>
   <% end %>
 </ul>
 
-<div id="answer_form">
-  <%= form_for [@question, @answer], remote: true do |f| %>
-    <%= f.text_area :text, cols: 100, rows: 5 %>
-    <%= f.submit %>
-  <% end %>
-</div>
 
 
+<ul id="answer_form">
+  <%= render  "answers/form", answer: @answer %>
+</ul>
 
-<!--
-<textarea class="form-control" rows="3"></textarea> -->
