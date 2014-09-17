@@ -12,4 +12,6 @@ class Answer < ActiveRecord::Base
     self.votes.count
   end
 
+
+
 end

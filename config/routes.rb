@@ -8,6 +8,7 @@ Rails.application.routes.draw do
 
   resources :sessions
   resources :users
+  resources :searches
 
   resources :questions do
     resources :answers, :except => [:index]
